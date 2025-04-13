@@ -68,12 +68,12 @@ function teleportLib:serverHop(PlaceID)
     while wait() do
         pcall(function()
             tp_void()
-            task.wait(1)
+            task.wait(3)
             if foundAnything ~= "" then
                 tp_void()
             end
-            task.wait(1)
         end)
+        task.wait(3)
     end
 end
 
