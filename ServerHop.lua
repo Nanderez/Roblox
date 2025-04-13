@@ -49,7 +49,6 @@ function teleportLib:serverHop(PlaceId)
                     local success, response = pcall(function()
                         writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
                         wait()
-                        print(PlaceId, ID, game:GetService("HttpService"):JSONEncode(v))
                         game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceId, ID, game.Players.LocalPlayer)
                     end)
                     if not success then
