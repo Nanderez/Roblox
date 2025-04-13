@@ -26,12 +26,11 @@ function teleportLib:serverHop(PlaceID)
         local Site;
         if foundAnything == "" then
             local response = game:HttpGet(proxyURL('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
-            print(response)
+            print("Response1:", response)
             Site = game.HttpService:JSONDecode(response)
         else
-            local response = ga
-            me:HttpGet(proxyURL('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
-            print(response)
+            local response = game:HttpGet(proxyURL('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
+            print("Response2:", response)
             Site = game.HttpService:JSONDecode(response)
         end
         local ID = ""
