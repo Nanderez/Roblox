@@ -5,7 +5,6 @@ local File = pcall(function()
     AllIDs = game:GetService('HttpService'):JSONDecode(readfile("NotSameServers.json"))
 end)
 for i,v in pairs(AllIDs) do
-    print("d")
     if tonumber(v)+660 < os.time() then
         AllIDs[i] = nil
     end
@@ -21,23 +20,20 @@ function teleportLib:setProxy(proxy)
   teleportLib.proxy = proxy
 end
 
-function teleportLib:serverHop(PlaceID)
+function teleportLib:serverHop(PlaceId)
     local function tp_void()
         local Site;
         if foundAnything == "" then
-            local response = game:HttpGet(proxyURL('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
-            print("Response1:", response)
+            local response = game:HttpGet(proxyURL('https://games.roblox.com/v1/games/' .. PlaceId .. '/servers/Public?sortOrder=Asc&limit=100'))
             Site = game.HttpService:JSONDecode(response)
         else
-            local response = game:HttpGet(proxyURL('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
-            print("Response2:", response)
+            local response = game:HttpGet(proxyURL('https://games.roblox.com/v1/games/' .. PlaceId .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
             Site = game.HttpService:JSONDecode(response)
         end
         local ID = ""
         if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
             foundAnything = Site.nextPageCursor
         end
-        local num = 0;
         for i,v in pairs(Site.data) do
             local Possible = true
             ID = tostring(v.id)
@@ -53,8 +49,8 @@ function teleportLib:serverHop(PlaceID)
                     local success, response = pcall(function()
                         writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
                         wait()
-                        print(PlaceID, ID, game:GetService("HttpService"):JSONEncode(v))
-                        game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
+                        print(PlaceId, ID, game:GetService("HttpService"):JSONEncode(v))
+                        game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceId, ID, game.Players.LocalPlayer)
                     end)
                     if not success then
                         warn(response)
@@ -64,17 +60,13 @@ function teleportLib:serverHop(PlaceID)
             end
         end
     end
-
-    while wait() do
+    while true do
         pcall(function()
             tp_void()
-            task.wait(3)
-            if foundAnything ~= "" then
-                tp_void()
-            end
         end)
+        print(1)
         task.wait(3)
     end
 end
 
-return teleportLib
+return teleportLib;
