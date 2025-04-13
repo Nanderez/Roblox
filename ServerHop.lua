@@ -54,7 +54,7 @@ function teleportLib:serverHop(PlaceId)
                     if not success then
                         warn(response)
                     end
-                    wait(4)
+                    break
                 end
             end
         end
@@ -63,7 +63,6 @@ function teleportLib:serverHop(PlaceId)
         pcall(function()
             tp_void()
         end)
-        print(1)
         task.wait(3)
     end
 end
