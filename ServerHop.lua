@@ -66,7 +66,7 @@ function teleportLib:serverHop(PlaceId, MinPlayers, MaxPlayers)
     creditsText.Position = UDim2.new(0.5, 0, 0.975000024, 0)
     creditsText.Size = UDim2.new(0.800000012, 0, 0.0500000007, 0)
     creditsText.Font = Enum.Font.SourceSansItalic
-    creditsText.Text = "RQZEX x Nanderez Productions"
+    creditsText.Text = "BGSi Snipe Productions"
     creditsText.TextColor3 = Color3.fromRGB(255, 255, 255)
     creditsText.TextScaled = true
     creditsText.TextSize = 14.000
