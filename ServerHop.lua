@@ -72,7 +72,7 @@ function teleportLib:serverHop(PlaceId, MinPlayers, MaxPlayers)
     creditsText.TextSize = 14.000
     creditsText.TextWrapped = true
 
-    MinPlayers = MinPlayers or 0
+    MinPlayers = MinPlayers or 1
     local Cursor = ""
     local function get_Servers()
         local temp
