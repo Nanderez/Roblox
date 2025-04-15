@@ -1,13 +1,3 @@
-local AllIDs = {}
-local File = pcall(function()
-    AllIDs = game:GetService('HttpService'):JSONDecode(readfile("NotSameServers.json"))
-end)
-for i,v in pairs(AllIDs) do
-    if tonumber(v)+660 < os.time() then
-        AllIDs[i] = nil
-    end
-end
-
 local teleportLib = {}
 local function proxyURL(url)
     return "http://nanderez.net/proxy/HT5MkKj84qgtxRnLs6bNBm2YQvDwAeEW7uJG3FdchaVPzrfU9ZQNTcSJHZRkDqLvzdh5sEtU8Kf24yaumB3wPCFXjYgGM6WAp9VxupxVBjPmGqCJ92tRQKceUDd4bZXnyWAka68g3zHvYE7hsMfFwLJHCwYdVX3mk8EUcTnBSQD7Ntjhr5LuKfsPGeA2pa4y9RbqgFx6BdGNbFxH5LEnY8tquUkjg63Ce4yQ7WwpDXTvKP29fMsJZSmAca/?" .. teleportLib.proxy .. "=" .. url;
@@ -74,6 +64,7 @@ function teleportLib:serverHop(PlaceId, MinPlayers, MaxPlayers)
 
     MinPlayers = MinPlayers or 1
     local Cursor = ""
+    local HttpService = game:GetService('HttpService')
     local function get_Servers()
         local temp
         local function try_site()
@@ -85,21 +76,43 @@ function teleportLib:serverHop(PlaceId, MinPlayers, MaxPlayers)
         end
         try_site()
         if tostring(temp) == '{"errors":[{"code":0,"message":"Too many requests"}]}' then
-            repeat wait(5); try_site() print("Trying") until tostring(temp) ~= '{"errors":[{"code":0,"message":"Too many requests"}]}'
+            repeat wait(5); try_site() until tostring(temp) ~= '{"errors":[{"code":0,"message":"Too many requests"}]}'
         end
-        local response = game.HttpService:JSONDecode(temp)
+        local response = HttpService:JSONDecode(temp)
         Cursor = response.nextPageCursor
         return response.data
     end
-    while wait(1) do
+    local AllIDs = {}
+    
+    pcall(function()
+        AllIDs = HttpService:JSONDecode(readfile("NotSameServers.json"))
+    end)
+    for i,v in pairs(AllIDs) do
+        if tonumber(v)+660 < os.time() then
+            AllIDs[i] = nil
+        end
+    end
+    local LastServerId = ""
+    while true do
         Servers = get_Servers()
         for _,Server in pairs(Servers) do
             local MaxPlayers = MaxPlayers or Server.maxPlayers
-            if Server.maxPlayers > Server.playing and Server.playing >= MinPlayers and Server.playing < MaxPlayers then
+            if Server.maxPlayers > Server.playing and Server.playing >= MinPlayers and Server.playing < MaxPlayers and AllIDs[Server.id] == nil then
+                local PreviousServers = {}
+				if isfile("NotSameServers.json") then
+					PreviousServers = HttpService:JSONDecode(readfile("NotSameServers.json"))
+				end
+                if LastServerId ~= "" then
+                    PreviousServers[LastServerId] = nil
+                end
+                LastServerId = tostring(Server.id)
+                PreviousServers[Server.id] = os.time()
+                writefile("NotSameServers.json", HttpService:JSONEncode(PreviousServers))
                 game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceId, Server.id, game:GetService("Players").LocalPlayer, nil, nil, teleportUI)
-                wait(2)
+                wait(3)
             end
         end
+        wait()
     end
 end
 
