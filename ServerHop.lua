@@ -110,9 +110,10 @@ function teleportLib:serverHop(PlaceId, MinPlayers, MaxPlayers)
                 writefile("NotSameServers.json", HttpService:JSONEncode(PreviousServers))
                 game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceId, Server.id, game:GetService("Players").LocalPlayer, nil, nil, teleportUI)
                 wait(3)
+		game:GetService("TeleportService"):TeleportCancel()
             end
         end
-        wait(3)
+        wait(1)
     end
 end
 
