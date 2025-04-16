@@ -109,10 +109,10 @@ function teleportLib:serverHop(PlaceId, MinPlayers, MaxPlayers)
                 PreviousServers[Server.id] = os.time()
                 writefile("NotSameServers.json", HttpService:JSONEncode(PreviousServers))
                 game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceId, Server.id, game:GetService("Players").LocalPlayer, nil, nil, teleportUI)
-                wait(3)
+                wait(5)
             end
         end
-        wait()
+        wait(10)
     end
 end
 
