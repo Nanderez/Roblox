@@ -3,8 +3,297 @@
   @Author: Nanderez
   @Description: Basic Notification Library loadstring.
   @Updates:
-    - Added CoreGui Support.
+    - Added CoreGui Support (safely this time).
+    - Added Themes
 
 ]]
 
-local v0={};v0.new=function() local v2={};local v3={};local v4=Instance.new("ScreenGui");v4.Name=game:GetService("HttpService"):GenerateGUID(false);v4.Parent=game.CoreGui or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui") ;v4.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;v2.Notify=function(v10,v11,v12,v13) v10=v10 or "" ;v11=v11 or "" ;v12=v12 or 3 ;v13=v13 or Color3.fromRGB(3,102,214) ;local v14=Instance.new("Frame");local v15=Instance.new("Frame");local v16=Instance.new("ImageLabel");local v17=Instance.new("ImageLabel");local v18=Instance.new("ImageLabel");local v19=Instance.new("Frame");local v20=Instance.new("Frame");local v21=Instance.new("Frame");local v22=Instance.new("TextLabel");local v23=Instance.new("UIPadding");local v24=Instance.new("TextLabel");local v25=Instance.new("UIPadding");v14.Name=game:GetService("HttpService"):GenerateGUID(false);v14.Parent=v4;v14.AnchorPoint=Vector2.new(1,1);v14.BackgroundColor3=Color3.fromRGB(31,36,40);v14.BackgroundTransparency=1;v14.BorderColor3=Color3.fromRGB(0,0,0);v14.BorderSizePixel=0;v14.Position=UDim2.new(1.175,20,1 -(( #v3-0.25) * 0.125) , -20);v14.Size=UDim2.new(0.175,0,0.1,0);v15.Name="__Shadow__";v15.Parent=v14;v15.AnchorPoint=Vector2.new(0.5,0.5);v15.BackgroundTransparency=1;v15.BorderColor3=Color3.fromRGB(27,42,53);v15.Position=UDim2.new(0.5,0,0.5,0);v15.Size=UDim2.new(1,15,1,15);v15.ZIndex= -999;v16.Name="__3__";v16.Parent=v15;v16.AnchorPoint=Vector2.new(0.5,0.5);v16.BackgroundTransparency=1;v16.BorderColor3=Color3.fromRGB(27,42,53);v16.Position=UDim2.new(0.5,0,0.5,0);v16.Size=UDim2.new(1,4,1,4);v16.ZIndex=0;v16.Image="rbxassetid://1316045217";v16.ImageColor3=Color3.fromRGB(0,0,0);v16.ImageTransparency=0.86;v16.ScaleType=Enum.ScaleType.Slice;v16.SliceCenter=Rect.new(10,10,118,118);v17.Name="__2__";v17.Parent=v15;v17.AnchorPoint=Vector2.new(0.5,0.5);v17.BackgroundTransparency=1;v17.BorderColor3=Color3.fromRGB(27,42,53);v17.Position=UDim2.new(0.5,0,0.5,0);v17.Size=UDim2.new(1,4,1,4);v17.ZIndex=0;v17.Image="rbxassetid://1316045217";v17.ImageColor3=Color3.fromRGB(0,0,0);v17.ImageTransparency=0.88;v17.ScaleType=Enum.ScaleType.Slice;v17.SliceCenter=Rect.new(10,10,118,118);v18.Name="__1__";v18.Parent=v15;v18.AnchorPoint=Vector2.new(0.5,0.5);v18.BackgroundTransparency=1;v18.BorderColor3=Color3.fromRGB(27,42,53);v18.Position=UDim2.new(0.5,0,0.5,0);v18.Size=UDim2.new(1,4,1,4);v18.ZIndex=0;v18.Image="rbxassetid://1316045217";v18.ImageColor3=Color3.fromRGB(0,0,0);v18.ImageTransparency=0.88;v18.ScaleType=Enum.ScaleType.Slice;v18.SliceCenter=Rect.new(10,10,118,118);v19.Name="Container";v19.Parent=v14;v19.BackgroundColor3=Color3.fromRGB(31,36,40);v19.BorderColor3=Color3.fromRGB(0,0,0);v19.BorderSizePixel=0;v19.Size=UDim2.new(1,0,1,0);v20.Name="Progress";v20.Parent=v19;v20.AnchorPoint=Vector2.new(0,1);v20.BackgroundColor3=Color3.fromRGB(36,41,46);v20.BorderColor3=Color3.fromRGB(0,0,0);v20.BorderSizePixel=0;v20.Position=UDim2.new(0,0,1,0);v20.Size=UDim2.new(1,0,0.125,0);v21.Name="Fill";v21.Parent=v20;v21.BackgroundColor3=v13;v21.BorderColor3=Color3.fromRGB(0,0,0);v21.BorderSizePixel=0;v21.Size=UDim2.new(1,0,1,0);v22.Name="Header";v22.Parent=v19;v22.BackgroundColor3=Color3.fromRGB(255,255,255);v22.BackgroundTransparency=1;v22.BorderColor3=Color3.fromRGB(0,0,0);v22.BorderSizePixel=0;v22.Size=UDim2.new(1,0,0.349999994,0);v22.FontFace=Font.fromId(12187365364);v22.Text=v10;v22.TextColor3=Color3.fromRGB(255,255,255);v22.TextScaled=true;v22.TextSize=14;v22.TextWrapped=true;v22.TextXAlignment=Enum.TextXAlignment.Left;v22.RichText=true;v22.TextScaled=false;v23.Name="Header_UIPadding";v23.Parent=v22;v23.PaddingBottom=UDim.new(0.1,0);v23.PaddingLeft=UDim.new(0.025,0);v23.PaddingTop=UDim.new(0.1,0);v24.Name="Content";v24.Parent=v19;v24.BackgroundColor3=Color3.fromRGB(255,255,255);v24.BackgroundTransparency=1;v24.BorderColor3=Color3.fromRGB(0,0,0);v24.BorderSizePixel=0;v24.Position=UDim2.new(0,0,0.35,0);v24.Size=UDim2.new(1,0,0.5,0);v24.FontFace=Font.fromId(12187365364);v24.Text=v11;v24.TextColor3=Color3.fromRGB(255,255,255);v24.TextSize=16;v24.TextWrapped=true;v24.TextXAlignment=Enum.TextXAlignment.Left;v24.TextYAlignment=Enum.TextYAlignment.Top;v24.RichText=true;v24.TextScaled=false;v25.Name="Content_UIPadding";v25.Parent=v24;v25.PaddingBottom=UDim.new(0.1,0);v25.PaddingLeft=UDim.new(0.025,0);v25.PaddingTop=UDim.new(0.1,0);v21:TweenSize(UDim2.new(0,0,1,0),Enum.EasingDirection.Out,Enum.EasingStyle.Quad,v12 + 0.5 );table.insert(v3,v14);task.spawn(function() while v14 and table.find(v3,v14)  do v14:TweenPosition(UDim2.new(1, -20,1 -((table.find(v3,v14) -1) * 0.125) , -20),Enum.EasingDirection.Out,Enum.EasingStyle.Quad,0.5);task.wait();end end);task.spawn(function() task.wait(v12);table.remove(v3,table.find(v3,v14));task.wait(0.1);v14:TweenPosition(UDim2.new(1.175,20,v14.Position.Y.Scale, -20),Enum.EasingDirection.Out,Enum.EasingStyle.Quad,0.3);task.wait(0.3);v14:Destroy();end);end;return v2;end;return v0;
+local NotificationLibrary = {}
+
+local themes = {
+	['github-dark'] = {
+		Primary = Color3.fromRGB(31, 36, 40);
+		Secondary = Color3.fromRGB(36, 41, 46);
+		Text = Color3.fromRGB(255, 255, 255);
+	};
+	['github-light'] = {
+		Primary = Color3.fromRGB(230, 231, 237);
+		Secondary = Color3.fromRGB(214, 216, 223);
+		Text = Color3.fromRGB(0, 0, 0);
+	};
+	
+	['tokyo-night'] = {
+		Primary = Color3.fromRGB(22, 22, 30);
+		Secondary = Color3.fromRGB(26, 27, 38);
+		Text = Color3.fromRGB(192, 202, 245);
+	};
+	['tokyo-day'] = {
+		Primary = Color3.fromRGB(230, 231, 237);
+		Secondary = Color3.fromRGB(214, 216, 223);
+		Text = Color3.fromRGB(52, 59, 88);
+	};
+
+	['one-dark-pro'] = {
+		Primary = Color3.fromRGB(22, 25, 29);
+		Secondary = Color3.fromRGB(35, 39, 46);
+		Text = Color3.fromRGB(181, 191, 208);
+	};
+
+	['dracula'] = {
+		Primary = Color3.fromRGB(40, 42, 54);
+		Secondary = Color3.fromRGB(25, 26, 33);
+		Text = Color3.fromRGB(255, 255, 255);
+	};
+
+	['ayu-dark'] = {
+		Primary = Color3.fromRGB(13, 16, 23);
+		Secondary = Color3.fromRGB(11, 14, 20);
+		Text = Color3.fromRGB(221, 219, 211);
+	};
+	['ayu-light'] = {
+		Primary = Color3.fromRGB(248, 249, 250);
+		Secondary = Color3.fromRGB(212, 213, 214);
+		Text = Color3.fromRGB(76, 80, 84);
+	};
+
+	['vue'] = {
+		Primary = Color3.fromRGB(0, 41, 51);
+		Secondary = Color3.fromRGB(20, 196, 170);
+		Text = Color3.fromRGB(139, 225, 215);
+	};
+}
+
+function NotificationLibrary.new(theme:string)
+	theme = theme or 'github-dark'
+	theme = theme:lower()
+	if not themes[theme] then
+		theme = 'github-dark'
+	end
+	
+	local currentTheme = themes[theme]
+	
+	local lib = {}
+	local active = {}
+	
+	local fontId = 12187365364
+	local font = Font.fromId(fontId)
+	
+	local NotificationUI = Instance.new("ScreenGui")
+
+	NotificationUI.Name = game:GetService('HttpService'):GenerateGUID(false)
+	
+	local parent
+	local success, error = pcall(function()
+		parent = game.CoreGui
+		NotificationUI.Parent = parent 
+	end)
+	
+	if not success then
+		parent = game:GetService('Players').LocalPlayer:WaitForChild("PlayerGui")
+		NotificationUI.Parent = parent 
+	end
+	
+	NotificationUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	
+	function lib.Notify(header:string, content:string, duration:number, settings:{})
+
+		header = header or ''
+		content = content or ''
+		duration = duration or 3
+		settings = settings or {}
+		local color = settings['color'] or Color3.fromRGB(3, 102, 214)
+		local soundId = settings['sound'] or 'rbxassetid://1862047553'
+		
+		local NotificationTemplate = Instance.new("Frame")
+		local __Shadow__ = Instance.new("Frame")
+		local __3__ = Instance.new("ImageLabel")
+		local __2__ = Instance.new("ImageLabel")
+		local __1__ = Instance.new("ImageLabel")
+		local Container = Instance.new("Frame")
+		local Progress = Instance.new("Frame")
+		local Fill = Instance.new("Frame")
+		local Header = Instance.new("TextLabel")
+		local Header_UIPadding = Instance.new("UIPadding")
+		local Content = Instance.new("TextLabel")
+		local Content_UIPadding = Instance.new("UIPadding")
+
+		NotificationTemplate.Name = game:GetService('HttpService'):GenerateGUID(false)
+		NotificationTemplate.AnchorPoint = Vector2.new(1, 1)
+		NotificationTemplate.BackgroundColor3 = Color3.fromRGB(31, 36, 40)
+		NotificationTemplate.BackgroundTransparency = 1.000
+		NotificationTemplate.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		NotificationTemplate.BorderSizePixel = 0
+		NotificationTemplate.Position = UDim2.new(1.175, 20, 1 - ((#active - .25) * 0.125), -20)
+		NotificationTemplate.Size = UDim2.new(0.175, 0, 0.1, 0)
+
+		__Shadow__.Name = "__Shadow__"
+		__Shadow__.Parent = NotificationTemplate
+		__Shadow__.AnchorPoint = Vector2.new(0.5, 0.5)
+		__Shadow__.BackgroundTransparency = 1.000
+		__Shadow__.BorderColor3 = Color3.fromRGB(27, 42, 53)
+		__Shadow__.Position = UDim2.new(0.5, 0, 0.5, 0)
+		__Shadow__.Size = UDim2.new(1, 15, 1, 15)
+		__Shadow__.ZIndex = -999
+
+		__3__.Name = "__3__"
+		__3__.Parent = __Shadow__
+		__3__.AnchorPoint = Vector2.new(0.5, 0.5)
+		__3__.BackgroundTransparency = 1.000
+		__3__.BorderColor3 = Color3.fromRGB(27, 42, 53)
+		__3__.Position = UDim2.new(0.5, 0, 0.5, 0)
+		__3__.Size = UDim2.new(1, 4, 1, 4)
+		__3__.ZIndex = 0
+		__3__.Image = "rbxassetid://1316045217"
+		__3__.ImageColor3 = Color3.fromRGB(0, 0, 0)
+		__3__.ImageTransparency = 0.860
+		__3__.ScaleType = Enum.ScaleType.Slice
+		__3__.SliceCenter = Rect.new(10, 10, 118, 118)
+
+		__2__.Name = "__2__"
+		__2__.Parent = __Shadow__
+		__2__.AnchorPoint = Vector2.new(0.5, 0.5)
+		__2__.BackgroundTransparency = 1.000
+		__2__.BorderColor3 = Color3.fromRGB(27, 42, 53)
+		__2__.Position = UDim2.new(0.5, 0, 0.5, 0)
+		__2__.Size = UDim2.new(1, 4, 1, 4)
+		__2__.ZIndex = 0
+		__2__.Image = "rbxassetid://1316045217"
+		__2__.ImageColor3 = Color3.fromRGB(0, 0, 0)
+		__2__.ImageTransparency = 0.880
+		__2__.ScaleType = Enum.ScaleType.Slice
+		__2__.SliceCenter = Rect.new(10, 10, 118, 118)
+
+		__1__.Name = "__1__"
+		__1__.Parent = __Shadow__
+		__1__.AnchorPoint = Vector2.new(0.5, 0.5)
+		__1__.BackgroundTransparency = 1.000
+		__1__.BorderColor3 = Color3.fromRGB(27, 42, 53)
+		__1__.Position = UDim2.new(0.5, 0, 0.5, 0)
+		__1__.Size = UDim2.new(1, 4, 1, 4)
+		__1__.ZIndex = 0
+		__1__.Image = "rbxassetid://1316045217"
+		__1__.ImageColor3 = Color3.fromRGB(0, 0, 0)
+		__1__.ImageTransparency = 0.880
+		__1__.ScaleType = Enum.ScaleType.Slice
+		__1__.SliceCenter = Rect.new(10, 10, 118, 118)
+
+		Container.Name = "Container"
+		Container.Parent = NotificationTemplate
+		Container.BackgroundColor3 = currentTheme['Primary']
+		Container.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		Container.BorderSizePixel = 0
+		Container.Size = UDim2.new(1, 0, 1, 0)
+
+		Progress.Name = "Progress"
+		Progress.Parent = Container
+		Progress.AnchorPoint = Vector2.new(0, 1)
+		Progress.BackgroundColor3 = currentTheme['Secondary']
+		Progress.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		Progress.BorderSizePixel = 0
+		Progress.Position = UDim2.new(0, 0, 1, 0)
+		Progress.Size = UDim2.new(1, 0, 0.125, 0)
+
+		Fill.Name = "Fill"
+		Fill.Parent = Progress
+		Fill.BackgroundColor3 = color
+		Fill.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		Fill.BorderSizePixel = 0
+		Fill.Size = UDim2.new(1, 0, 1, 0)
+
+		Header.Name = "Header"
+		Header.Parent = Container
+		Header.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Header.BackgroundTransparency = 1.000
+		Header.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		Header.BorderSizePixel = 0
+		Header.Size = UDim2.new(1, 0, 0.349999994, 0)
+		Header.FontFace = font
+		Header.Text = header
+		Header.TextColor3 = currentTheme['Text']
+		Header.TextScaled = true
+		Header.TextSize = 20
+		Header.TextTruncate = Enum.TextTruncate.SplitWord
+		Header.TextXAlignment = Enum.TextXAlignment.Left
+		Header.RichText = true
+		Header.TextScaled = false
+
+		Header_UIPadding.Name = "Header_UIPadding"
+		Header_UIPadding.Parent = Header
+		Header_UIPadding.PaddingBottom = UDim.new(0.1, 0)
+		Header_UIPadding.PaddingLeft = UDim.new(0.025, 0)
+		Header_UIPadding.PaddingTop = UDim.new(0.1, 0)
+
+		Content.Name = "Content"
+		Content.Parent = Container
+		Content.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Content.BackgroundTransparency = 1
+		Content.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		Content.BorderSizePixel = 0
+		Content.Position = UDim2.new(0, 0, 0.35, 0)
+		Content.Size = UDim2.new(1, 0, 0.5, 0)
+		Content.FontFace = font
+		Content.Text = content
+		Content.TextColor3 = currentTheme['Text']
+		Content.TextSize = 16.000
+		Content.TextWrapped = true
+		Content.TextXAlignment = Enum.TextXAlignment.Left
+		Content.TextYAlignment = Enum.TextYAlignment.Top
+		Content.RichText = true
+		Content.TextScaled = false
+		
+		Content_UIPadding.Name = "Content_UIPadding"
+		Content_UIPadding.Parent = Content
+		Content_UIPadding.PaddingBottom = UDim.new(0.1, 0)
+		Content_UIPadding.PaddingLeft = UDim.new(0.025, 0)
+		Content_UIPadding.PaddingTop = UDim.new(0.1, 0)
+		
+		NotificationTemplate.Size = UDim2.new(
+			NotificationTemplate.Size.X.Scale, 
+			NotificationTemplate.Size.X.Offset - 50,
+			NotificationTemplate.Size.Y.Scale, 
+			NotificationTemplate.Size.Y.Offset - 50
+		)
+		
+		NotificationTemplate.Parent = NotificationUI
+		
+		task.spawn(function()
+			local sound = Instance.new('Sound', NotificationTemplate)
+			sound.Name = game:GetService('HttpService'):GenerateGUID(false)
+			sound.SoundId = soundId
+			sound.Volume = 0.35
+			sound:Play()
+			sound.Ended:Wait()
+			sound:Destroy()
+		end)
+		
+		Fill:TweenSize(UDim2.new(0, 0, 1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, duration + .5)
+		NotificationTemplate:TweenSize(UDim2.new(0.175, 0, 0.1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, .35)
+		
+		table.insert(active, NotificationTemplate)
+		
+		task.spawn(function()
+			while NotificationTemplate and table.find(active, NotificationTemplate) do
+				NotificationTemplate:TweenPosition(UDim2.new(1, -20, 1 - ((table.find(active, NotificationTemplate) - 1) * 0.125), -20),
+					Enum.EasingDirection.Out, Enum.EasingStyle.Quad, .25
+				)
+				task.wait()
+			end
+		end)
+
+		task.spawn(function()
+			task.wait(duration)
+			table.remove(active, table.find(active, NotificationTemplate))
+			task.wait(.1)
+			NotificationTemplate:TweenPosition(UDim2.new(1.175, 20, NotificationTemplate.Position.Y.Scale, -20), 
+				Enum.EasingDirection.Out, Enum.EasingStyle.Quad, .3
+			)
+			task.wait(.3)
+			NotificationTemplate:Destroy()
+		end)
+
+	end
+
+	return lib
+end
+
+return NotificationLibrary
